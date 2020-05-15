@@ -1,11 +1,13 @@
 <template>
   <div id="app">
     <h1>Covid19 Tracker</h1>
+    <world-component></world-component>
   </div>
 </template>
 
 <script>
-import World from './components/World.vue'
+import WorldComponent from './components/World.vue'
+import {eventBus} from "@/main.js"
 
 export default {
   name: 'App',
@@ -23,6 +25,9 @@ export default {
     .then(res => res.json())
     .then(data => this.worlddata = data)
     .catch(error => console.log("error:", error))
+  },
+  components: {
+    "world-component": WorldComponent
   }
 }
 </script>
