@@ -3,9 +3,7 @@
 
 <h1>World data</h1>
 
-<ul>
-  <li></li>
-</ul>
+<p></p>
 
 </div>
   

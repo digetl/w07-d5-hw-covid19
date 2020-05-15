@@ -19,6 +19,11 @@ export default {
   methods: {
 
   },
+  computed: {
+    globalData: function(){
+      return this.worlddata['Global'];
+    }
+  },
 
   mounted(){
     fetch("https://api.covid19api.com/summary")
