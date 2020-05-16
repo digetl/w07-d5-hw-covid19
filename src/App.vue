@@ -13,14 +13,15 @@
         </ul>
     </div>
 
-     <countries-list></countries-list>
+     <countries-list v-bind:countriesData="countriesData"></countries-list>
 
   </div>
 </template>
 
 <script>
-import WorldComponent from './components/World.vue'
 import CountriesList from './components/CountriesList.vue'
+import CountryDetail from './components/CountryDetail.vue'
+
 import {eventBus} from "@/main.js"
 
 export default {
@@ -58,9 +59,8 @@ export default {
     .catch(error => this.errorMessage = error)
   },
   components: {
-    "world-component": WorldComponent,
-    "countries-list": CountriesList
-    // "country-detail": CountryDetail
+    "countries-list": CountriesList,
+    "country-detail": CountryDetail
   }
 }
 </script>
