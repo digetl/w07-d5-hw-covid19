@@ -2,7 +2,7 @@
   <div id="app">
     <h1>Covid19 Tracker</h1>
     <div class="container">
-      <h1>World data</h1>
+      <h1>World data as of {{prettyDateOfData}}</h1>
         <ul>
           <li>New Confirmed Cases: {{globalData.NewConfirmed.toLocaleString()}}</li>
           <li>New Deaths: {{globalData.NewDeaths.toLocaleString()}}</li>
@@ -12,15 +12,15 @@
           <li>Total Recovered: <strong>{{globalData.TotalRecovered.toLocaleString()}}</strong></li>
         </ul>
     </div>
-<!-- 
-     <countries-list :countriesData='countries'></countries-list>
-     <countries-detail :country='selectedCountry'></countries-detail> -->
+
+     <countries-list></countries-list>
 
   </div>
 </template>
 
 <script>
 import WorldComponent from './components/World.vue'
+import CountriesList from './components/CountriesList.vue'
 import {eventBus} from "@/main.js"
 
 export default {
@@ -28,7 +28,7 @@ export default {
   data(){
     return{
       worlddata:{},
-      allcountriesdata: {}
+      errorMessage:""
     }
   },
  
@@ -41,10 +41,11 @@ export default {
       return this.worlddata['Global'];
     },
     countriesData: function() {
-      return this.allcountriesdata['Countries'];
+      return this.worlddata['Countries'];
     },
-    dateOfDataRequest: function() {
-      return this.worlddata['Date'];
+  
+    prettyDateOfData: function() {
+      return new Date(this.worlddata['Date']);
     }
    
 
@@ -54,16 +55,11 @@ export default {
     fetch("https://api.covid19api.com/summary")
     .then(res => res.json())
     .then(data => this.worlddata = data)
-    .catch(error => console.log("error:", error))
-
-    fetch("https://api.covid19api.com/summary")
-    .then(res => res.json())
-    .then(data => this.allcountriesdata = data)
-    .catch(error => console.log("error:", error))
+    .catch(error => this.errorMessage = error)
   },
   components: {
-    "world-component": WorldComponent
-    // "countries-list": CountriesList,
+    "world-component": WorldComponent,
+    "countries-list": CountriesList
     // "country-detail": CountryDetail
   }
 }
