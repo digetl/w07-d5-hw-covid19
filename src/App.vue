@@ -42,6 +42,9 @@ export default {
     },
     countriesData: function() {
       return this.allcountriesdata['Countries'];
+    },
+    dateOfDataRequest: function() {
+      return this.worlddata['Date'];
     }
    
 
