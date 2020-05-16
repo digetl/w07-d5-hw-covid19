@@ -1,19 +1,21 @@
 <template>
   <div id="app">
     <h1>Covid19 Tracker</h1>
-    <world-component></world-component>
     <div class="container">
       <h1>World data</h1>
         <ul>
-          <li>New Confirmed Cases: {{globalData.NewConfirmed}}</li>
-          <li>New Deaths: {{globalData.NewDeaths}}</li>
-          <li>New Recovered: {{globalData.NewRecovered}}</li>
-          <li>Total Confirmed Cases: {{globalData.TotalConfirmed}}</li>
-          <li>Total Deaths: {{globalData.TotalDeaths}}</li>
-          <li>Total Recovered: {{globalData.TotalRecovered}}</li>
-
+          <li>New Confirmed Cases: {{globalData.NewConfirmed.toLocaleString()}}</li>
+          <li>New Deaths: {{globalData.NewDeaths.toLocaleString()}}</li>
+          <li>New Recovered: {{globalData.NewRecovered.toLocaleString()}}</li>
+          <li>Total Confirmed Cases: <strong>{{globalData.TotalConfirmed.toLocaleString()}}</strong></li>
+          <li>Total Deaths: {{globalData.TotalDeaths.toLocaleString()}}</li>
+          <li>Total Recovered: <strong>{{globalData.TotalRecovered.toLocaleString()}}</strong></li>
         </ul>
     </div>
+<!-- 
+     <countries-list :countriesData='countries'></countries-list>
+     <countries-detail :country='selectedCountry'></countries-detail> -->
+
   </div>
 </template>
 
@@ -25,16 +27,24 @@ export default {
   name: 'App',
   data(){
     return{
-      worlddata:{}
+      worlddata:{},
+      allcountriesdata: {}
     }
   },
-  methods: {
+ 
 
+  methods: {
+   
   },
   computed: {
     globalData: function(){
       return this.worlddata['Global'];
+    },
+    countriesData: function() {
+      return this.allcountriesdata['Countries'];
     }
+   
+
   },
 
   mounted(){
@@ -42,16 +52,23 @@ export default {
     .then(res => res.json())
     .then(data => this.worlddata = data)
     .catch(error => console.log("error:", error))
+
+    fetch("https://api.covid19api.com/summary")
+    .then(res => res.json())
+    .then(data => this.allcountriesdata = data)
+    .catch(error => console.log("error:", error))
   },
   components: {
     "world-component": WorldComponent
+    // "countries-list": CountriesList,
+    // "country-detail": CountryDetail
   }
 }
 </script>
 
 <style>
 #app {
-  padding:0 20%;
+  padding:0 10%;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
