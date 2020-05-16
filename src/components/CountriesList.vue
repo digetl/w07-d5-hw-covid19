@@ -1,4 +1,4 @@
-<template>
+<template lang="html">
 
 <div>
 
@@ -15,12 +15,11 @@
 
 <script>
 import ListComponent from './ListComponent.vue'
-import { eventBus } from '../main.js'
 
 export default {
-  props: ['countriesData'],
   name: "countries-list",
-
+  props: ['countriesData'],
+ 
   components: {
     "list-component": ListComponent   
   }
