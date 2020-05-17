@@ -1,8 +1,14 @@
 <template lang="html">
  <div class=country-covid-details>
   <li class="country-name">{{country.Country}}</li>
-  <li>Total Confirmed Cases: {{country.TotalConfirmed}}</li>
-  <li>Total Recovered Cases: {{country.TotalRecovered}}</li>
+   <button v-on:click="show-details">Show details</button>
+    <button v-on:click="hide-details">Hide Details</button>
+  <li v-if="true"class="country-data">Total Confirmed Cases: {{country.TotalConfirmed}}</li>
+  <li class="country-data">Total Deaths: {{country.TotalDeaths}}</li>
+  <li class="country-data">Total Recovered Cases: {{country.TotalRecovered}}</li>
+  <li class="country-data">New Confirmed Cases: {{country.NewConfirmed}}</li>
+  <li class="country-data">New Deaths: {{country.NewDeaths}}</li>
+  <li class="country-data">New Recovered Cases: {{country.NewRecovered}}</li>
  </div>
 </template>
 
@@ -14,7 +20,11 @@ export default {
   props: ['country'],
   methods: {
 
-  }
+  },
+    // data:() {
+    //   show-details: 'false',
+    //   show-details: 'true'
+    // }
 }
 </script>
 

@@ -4,6 +4,7 @@
 
   <div class="container">
     <h1 id="cl-headher">Countries list</h1>
+    
       <ul class="countries-list">
         <list-component v-for="(country, index) in countriesData" :country="country" :key="index"></list-component>
       </ul>
