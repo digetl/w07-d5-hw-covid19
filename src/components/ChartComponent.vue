@@ -2,7 +2,7 @@
   <div>
        <GChart
         type="ColumnChart"
-        :data="toGrapfData"
+        :data="chartData"
         :options="chartOptions"
         />
   </div>
@@ -14,25 +14,38 @@ import { GChart } from 'vue-google-charts'
  
 export default {
   name: 'global-covid-chart',
+  components: {
+    GChart
+  },
   props: ['globalData'],
 
   data(){
+    objToArray:{}
+    toGrapfData:[]
+
       return {
+
+        chartData: [addedHeaders],
       
           chartOptions: {
-              width: 600,
-              height: 200,
-              title: 'Todays data',
-              colors: ['#084887', '#f58a07', '#f9ab55', '#f7f5fb', '#909cc2', '#C1BB8F', '#A176BC']
+              // width: 600,
+              // height: 200,
+              title: 'Todays data'
           }
       }
   },
   computed: {
-    toGrapfData: function() {
+
+    objToArray: function() {
      return Object.entries(this.globalData)
-      
+    },
+
+    addedHeaders: function() {
+      return objToArray.unshift(['Outcome', 'number'])
     }
+
   },
+  
   components: {
     GChart
   }
