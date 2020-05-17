@@ -1,8 +1,9 @@
 <template>
   <div id="app">
     <h1>Covid19 Tracker</h1>
-    <div class="container">
-      <h1>World data as of {{prettyDateOfData}}</h1>
+    <div class="grid-container">
+      <div class="col-1">
+        <h2>World data as of {{prettyDateOfData}}</h2>
         <ul>
           <li>New Confirmed Cases: {{globalData.NewConfirmed.toLocaleString()}}</li>
           <li>New Deaths: {{globalData.NewDeaths.toLocaleString()}}</li>
@@ -11,9 +12,11 @@
           <li>Total Deaths: {{globalData.TotalDeaths.toLocaleString()}}</li>
           <li>Total Recovered: <strong>{{globalData.TotalRecovered.toLocaleString()}}</strong></li>
         </ul>
-    </div>
+      </div>
 
-     <countries-list v-bind:countriesData="countriesData"></countries-list>
+      <div class="col-1"
+        <countries-list v-bind:countriesData="countriesData"></countries-list>
+      </div>
 
   </div>
 </template>
@@ -67,7 +70,7 @@ export default {
 
 <style>
 #app {
-  padding:0 10%;
+  padding:0 5%;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -76,8 +79,10 @@ export default {
   margin-top: 60px;
 }
 
-.container{
-  padding: auto;
+.grid-container{
+  display: grid;
+  grid-template-columns: 50% 50%;
+
 }
 
 ul {
