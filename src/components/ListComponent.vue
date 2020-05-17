@@ -1,5 +1,9 @@
 <template lang="html">
-        <li>{{country.Country}}</li>
+ <div class=country-covied-details>
+  <li class="country-name">{{country.Country}}</li>
+  <li>Total Confirmed Cases: {{country.TotalConfirmed}}</li>
+  <li>Total Recovered Cases: {{country.TotalRecovered}}</li>
+ </div>
 </template>
 
 <script>
@@ -15,5 +19,9 @@ export default {
 </script>
 
 <style>
+.country-name {
+font-weight: 700;
+font-size: 1.4rem;
+}
 
 </style>
