@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>Covid19 Tracker</h1>
+    <h1 class="app-title">Covid19 Tracker</h1>
     <div class="grid-container">
       <div class="col-1">
         <h2>World data as of {{prettyDateOfData}}</h2>
@@ -70,13 +70,19 @@ export default {
 
 <style>
 #app {
-  padding:0 5%;
+  padding:0%;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  
+}
+
+body{
+background-image: url('assets/virus-light2.jpg');
+background-repeat: no-repeat;
+background-size: cover;
+
 }
 
 .grid-container{
@@ -90,6 +96,11 @@ ul {
   padding-inline-start: 0px;
   line-height: 2rem;
 
+}
+
+.app-title{
+  font-size: 3rem;
+  padding-top: 2rem;
 }
 
 </style>

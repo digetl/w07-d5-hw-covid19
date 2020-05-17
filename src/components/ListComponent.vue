@@ -1,5 +1,5 @@
 <template lang="html">
- <div class=country-covied-details>
+ <div class=country-covid-details>
   <li class="country-name">{{country.Country}}</li>
   <li>Total Confirmed Cases: {{country.TotalConfirmed}}</li>
   <li>Total Recovered Cases: {{country.TotalRecovered}}</li>
@@ -21,7 +21,11 @@ export default {
 <style>
 .country-name {
 font-weight: 700;
-font-size: 1.4rem;
+font-size: 1.2rem;
+}
+
+.country-covid-details {
+padding-bottom: 0.5rem;
 }
 
 </style>
