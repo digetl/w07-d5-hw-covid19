@@ -8,3 +8,7 @@ export const eventBus = new Vue()
 new Vue({
   render: h => h(App),
 }).$mount('#app')
+
+import VueGoogleCharts from 'vue-google-charts'
+ 
+Vue.use(VueGoogleCharts)

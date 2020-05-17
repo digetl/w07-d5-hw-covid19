@@ -1,9 +1,8 @@
 <template lang="html">
   <div>
        <GChart
-        v-if="chartData"
         type="ColumnChart"
-        :data="chartData"
+        :data="toGrapfData"
         :options="chartOptions"
         />
   </div>
@@ -19,13 +18,21 @@ export default {
 
   data(){
       return {
+      
           chartOptions: {
               width: 600,
               height: 200,
-              title: 'Current data',
+              title: 'Todays data',
               colors: ['#084887', '#f58a07', '#f9ab55', '#f7f5fb', '#909cc2', '#C1BB8F', '#A176BC']
           }
       }
+  },
+  computed: {
+    toGrapfData: function() {
+      
+      this.globalData.unshift(["Name", "Numbers"])
+      return globalData
+    }
   },
   components: {
     GChart
