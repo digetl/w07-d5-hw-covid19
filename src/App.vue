@@ -12,6 +12,10 @@
           <li>Total Deaths: {{globalData.TotalDeaths.toLocaleString()}}</li>
           <li>Total Recovered: <strong>{{globalData.TotalRecovered.toLocaleString()}}</strong></li>
         </ul>
+
+        <h2>Chart Data</h2>
+
+
       </div>
 
       <div class="col-1">
