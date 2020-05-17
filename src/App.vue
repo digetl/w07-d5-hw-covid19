@@ -14,6 +14,7 @@
         </ul>
 
         <h2>Chart Data</h2>
+        <chart-component>v-bind:globalData="globalData"</chart-component>
 
 
       </div>
