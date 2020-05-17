@@ -14,10 +14,10 @@
         </ul>
       </div>
 
-      <div class="col-1"
+      <div class="col-1">
         <countries-list v-bind:countriesData="countriesData"></countries-list>
       </div>
-
+    </div>
   </div>
 </template>
 
@@ -50,6 +50,10 @@ export default {
   
     prettyDateOfData: function() {
       return new Date(this.worlddata['Date']);
+    },
+
+    showdetails: function() {
+      return false;
     }
    
 
