@@ -25,6 +25,8 @@
 import CountriesList from './components/CountriesList.vue'
 import CountryDetail from './components/CountryDetail.vue'
 
+import ChartComponent from './components/ChartComponent.vue'
+
 import {eventBus} from "@/main.js"
 
 export default {
@@ -67,7 +69,8 @@ export default {
   },
   components: {
     "countries-list": CountriesList,
-    "country-detail": CountryDetail
+    "country-detail": CountryDetail,
+    "chart-component": ChartComponent
   }
 }
 </script>
