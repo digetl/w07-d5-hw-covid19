@@ -29,9 +29,8 @@ export default {
   },
   computed: {
     toGrapfData: function() {
+     return Object.entries(this.globalData)
       
-      this.globalData.unshift(["Name", "Numbers"])
-      return globalData
     }
   },
   components: {
